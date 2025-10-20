@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class DashboardPrivateController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         $this->data['title'] = 'Dashboard';
