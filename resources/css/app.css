@@ -191,6 +191,11 @@
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 }
 
 @utility menu-item {

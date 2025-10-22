@@ -15,7 +15,7 @@
                     <!-- Small Device Overlay End -->
 
                     <!-- ===== Header Start ===== -->
-                        @include('partials.header')
+                        @include('partials.private.header')
                     <!-- ===== Header End ===== -->
 
                     <!-- ===== Main Content Start ===== -->

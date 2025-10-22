@@ -26,7 +26,14 @@
                 scrollTop: false,
                 setPage(pageName) {
                     this.page = pageName;
-                } 
+                },
+                copyToClipboard(text) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        alert(text + ' copied to clipboard!');
+                    }, () => {
+                        alert('Failed to copy text to clipboard.');
+                    });
+                }
             }
         "
         x-init="
