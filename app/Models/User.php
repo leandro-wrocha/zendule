@@ -4,8 +4,10 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Socialite\Contracts\User as ContractsUser;
 
 class User extends Authenticatable
 {
@@ -44,5 +46,22 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Store a new user.
+     *
+     * @param ContractsUser $data
+     */
+    public static function store(ContractsUser $data): User
+    {
+        $user = new User();
+        $user->fill([
+            'name' => $data->getName(),
+            'email' => $data->getEmail(),
+        ]);
+        $user->save();
+
+        return $user;
     }
 }
