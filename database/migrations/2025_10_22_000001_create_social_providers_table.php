@@ -8,12 +8,14 @@ class CreateSocialProvidersTable extends Migration
 {
     public function up()
     {
-        Schema::create('social_providers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('provider_key')->nullable();
-            $table->datetimes();
-        });
+        if (!Schema::hasTable('social_providers')) {
+            Schema::create('social_providers', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->boolean('is_enabled')->default(false);
+                $table->datetimes();
+            });
+        }
     }
 
     public function down()

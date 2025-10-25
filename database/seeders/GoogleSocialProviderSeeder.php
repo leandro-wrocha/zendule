@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\SocialProvider;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class GoogleSocialProvider extends Seeder
 {
     /**
      * Run the database seeds.

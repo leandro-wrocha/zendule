@@ -17,12 +17,12 @@
                 <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
                 <div class="flex flex-col items-center w-full gap-6 xl:flex-row">
                     <div class="w-20 h-20 overflow-hidden border border-gray-200 rounded-full dark:border-gray-800">
-                        <img src="{{ asset('user/owner.jpg') }}" alt="user" />
+                        <img src="{{ $user->avatar_url ?? asset('user/owner.jpg') }}" alt="user" />
                     </div>
 
                     <div class="order-3 xl:order-2">
                         <h4 class="mb-2 text-lg font-semibold text-center text-gray-800 dark:text-white/90 xl:text-left">
-                            Musharof Chowdhury
+                            {{ $user->first_name }} {{ $user->last_name }}
                         </h4>
                         <div class="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
                             <p class="text-sm text-gray-500 dark:text-gray-400">
@@ -139,7 +139,7 @@
                                 First Name
                             </p>
                             <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                Musharof
+                                {{ $user->first_name }}
                             </p>
                         </div>
 
@@ -148,7 +148,7 @@
                                 Last Name
                             </p>
                             <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                Chowdhury
+                                {{ $user->last_name }}
                             </p>
                         </div>
 
@@ -157,7 +157,7 @@
                                 Email address
                             </p>
                             <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                randomuser@pimjo.com
+                                {{ $user->email }}
                             </p>
                         </div>
 
@@ -166,7 +166,7 @@
                                 Phone
                             </p>
                             <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                +09 363 398 46
+                                {{ $user->phone }}
                             </p>
                         </div>
 
@@ -175,7 +175,7 @@
                                 Bio
                             </p>
                             <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                Team Manager
+                                {{ $user->bio }}
                             </p>
                         </div>
                     </div>

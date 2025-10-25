@@ -403,10 +403,10 @@
                     <a class="flex items-center text-gray-700 dark:text-gray-400" href="#"
                     @click.prevent="dropdownOpen = ! dropdownOpen">
                     <span class="mr-3 h-11 w-11 overflow-hidden rounded-full">
-                        <img src="{{ asset('user/owner.jpg') }}" alt="User" />
+                        <img src="{{ $user->avatar_url ?? asset('user/owner.jpg') }}" alt="User" />
                     </span>
 
-                    <span class="text-theme-sm mr-1 block font-medium"> Musharof </span>
+                    <span class="text-theme-sm mr-1 block font-medium"> {{ $user->first_name }} </span>
 
                     <svg :class="dropdownOpen && 'rotate-180'" class="stroke-gray-500 dark:stroke-gray-400" width="18" height="20"
                         viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -420,16 +420,16 @@
                     class="shadow-theme-lg dark:bg-gray-dark absolute right-0 mt-[17px] flex w-[260px] flex-col rounded-2xl border border-gray-200 bg-white p-3 dark:border-gray-800">
                     <div>
                         <span class="text-theme-sm block font-medium text-gray-700 dark:text-gray-400">
-                        Musharof Chowdhury
+                        {{ $user->first_name }} {{ $user->last_name }}
                         </span>
                         <span class="text-theme-xs mt-0.5 block text-gray-500 dark:text-gray-400">
-                        randomuser@pimjo.com
+                        {{ $user->email }}
                         </span>
                     </div>
 
                     <ul class="flex flex-col gap-1 border-b border-gray-200 pt-4 pb-3 dark:border-gray-800">
                         <li>
-                        <a href="profile.html"
+                        <a href="{{ route('profile.private.index') }}"
                             class="group text-theme-sm flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
                             <svg class="fill-gray-500 group-hover:fill-gray-700 dark:fill-gray-400 dark:group-hover:fill-gray-300"
                             width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -441,7 +441,7 @@
                         </a>
                         </li>
                         <li>
-                        <a href="settings.html"
+                        <a href="#"
                             class="group text-theme-sm flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
                             <svg class="fill-gray-500 group-hover:fill-gray-700 dark:fill-gray-400 dark:group-hover:fill-gray-300"
                             width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -453,7 +453,9 @@
                         </a>
                         </li>
                     </ul>
-                    <button
+                    <a
+                        role="button"
+                        href="{{ route('logout') }}"
                         class="group text-theme-sm mt-3 flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
                         <svg class="fill-gray-500 group-hover:fill-gray-700 dark:group-hover:fill-gray-300" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -463,7 +465,7 @@
                         </svg>
 
                         Sign out
-                    </button>
+                    </a>
                     </div>
                     <!-- Dropdown End -->
                 </div>

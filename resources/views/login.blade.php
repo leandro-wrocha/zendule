@@ -48,7 +48,7 @@
                             <div class="grid grid-cols-1 grid-rows-2 gap-3 sm:gap-5">
                                 <a
                                     role="button"
-                                    href="{{ route('auth.google.callback') }}"
+                                    href="{{ route('auth.google.redirect') }}"
                                     class="inline-flex items-center justify-center gap-3 py-3 text-sm font-normal text-gray-700 transition-colors bg-gray-100 rounded-lg px-7 hover:bg-gray-200 hover:text-gray-800 dark:bg-white/5 dark:text-white/90 dark:hover:bg-white/10"
                                 >
                                     <svg

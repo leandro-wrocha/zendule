@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 
-class Provider extends Model
+class SocialProvider extends Model
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -25,7 +26,13 @@ class Provider extends Model
      *
      * @var list<string>
      */
-    protected $hidden = [
-        'provider_key'
-    ];
+    protected $hidden = [];
+
+    /**
+     * Get the user tokens.
+     */
+    public function user_tokens(): HasMany
+    {
+        return $this->hasMany(UserToken::class);
+    }
 }

@@ -37,7 +37,7 @@
                             <!-- Menu Item Dashboard -->
                                 <li>
                                     <a 
-                                        href="/" 
+                                        href="{{ route('dashboard.private.index') }}" 
                                         @click="selected = (selected === 'Dashboard' ? '':'Dashboard')"
                                         class="menu-item group"
                                         :class=" (selected === 'Dashboard') && (page === 'dashboard') ? 'menu-item-active' : 'menu-item-inactive'"

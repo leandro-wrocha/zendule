@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 abstract class Controller
 {
     /**
@@ -10,4 +12,9 @@ abstract class Controller
      * @var array<string, mixed>
      */
     protected array $data = [];
+
+    public function __construct()
+    {
+        $this->data['user'] = Auth::user();
+    }
 }

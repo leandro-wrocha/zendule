@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Socialite\Contracts\User as ContractsUser;
+
+use App\Models\UserToken;
 
 class User extends Authenticatable
 {
@@ -20,9 +20,10 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'avatar_url',
         'email',
-        'password',
     ];
 
     /**
@@ -49,19 +50,10 @@ class User extends Authenticatable
     }
 
     /**
-     * Store a new user.
-     *
-     * @param ContractsUser $data
+     * Get the user tokens
      */
-    public static function store(ContractsUser $data): User
+    public function user_tokens(): HasMany
     {
-        $user = new User();
-        $user->fill([
-            'name' => $data->getName(),
-            'email' => $data->getEmail(),
-        ]);
-        $user->save();
-
-        return $user;
+        return $this->hasMany(UserToken::class);
     }
 }
